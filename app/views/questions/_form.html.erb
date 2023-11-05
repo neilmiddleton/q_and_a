@@ -1,0 +1,19 @@
+<%= form_for @question do |f| %>
+  <div class="space-y-5">
+    <h1 class="text-base font-semibold leading-7 text-gray-900">New Question</h1>
+
+    <%= render 'shared/errors', object: @question %> 
+
+    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+      <div class="col-span-full">
+        <div class="mt-2">
+          <%= f.text_area :text, rows: 5, cols: 50, required: true %>
+        </div>
+      </div>
+    </div>
+    
+    
+    <%= f.submit "Create", class: 'btn-primary' %>
+    <%= link_to "Cancel", root_path, class: 'btn-secondary' %>
+  </div>
+<% end %>

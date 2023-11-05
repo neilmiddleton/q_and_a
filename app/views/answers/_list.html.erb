@@ -1,0 +1,21 @@
+<% @answers.each do |answer| %>
+  <div class="bg-white py-5">
+    <div class="flex space-y-3">
+      <div class="min-w-0 flex-1">
+        <p class="text-sm font-semibold text-gray-900">
+          <%= answer.user_id %>
+        </p>
+        <p class="text-sm text-gray-500">
+          <a href="#" class="hover:underline"><%= distance_of_time_in_words_to_now answer.created_at %> ago</a>
+        </p>
+      </div>
+    </div>
+    <div class="pb-5 sm:pt-0">
+      <p><%= answer.text %></p>
+    </div>
+  </div>
+<% end -%>
+
+<% if @answers.empty? %>
+  <p class='text-sm py-4'>There are no answers</p>
+<% end %>

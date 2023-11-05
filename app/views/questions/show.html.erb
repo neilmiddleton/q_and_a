@@ -1,0 +1,10 @@
+<%= link_to "< Back", root_path, class:'btn-primary mb-4' %>
+
+<h2 class="py-4">Q: <%= @question.text %></h2>
+
+<% unless @question.answered_by?(current_user) or @question.user_id == current_user %>
+  <p class='py-4'>Post your own answer</p>
+  <%= render 'answers/form' %> 
+<% end -%>
+
+<%= render 'answers/list' %>

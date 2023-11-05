@@ -1,0 +1,23 @@
+
+<h1 class='font-bold pb-5'>Your Questions</h1>
+
+<div class='mb-5'>
+  <%= link_to "Create a new question", new_question_path, class: 'btn-primary' %>
+</div>
+
+<div class='divide-y divide-gray-200'>
+  <% if @your_questions.any? %>
+    <%= render 'question_list', questions: @your_questions %>
+  <% else %>
+    <p class='text-sm py-4'>You have no questions</p>
+  <% end -%>
+
+  <div>
+    <h1 class='font-bold py-5'>Questions needing your answer</h1>
+    <% if @unanswered_questions.any? %>
+      <%= render 'question_list', questions: @unanswered_questions %>
+    <% else %>
+      <p class='text-sm py-4'>There are no questions waiting for your answer</p>
+    <% end -%>
+  </div>
+</div>
